@@ -11,10 +11,12 @@ export default class Header extends Component {
             &#9776;
           </Link>
         </div>
-
         <Link className="logo" to="/">
           BookApp
         </Link>
+        {/* <Link className="logo" to="/">
+          LogOut
+        </Link> */}
       </header>
     );
   }
