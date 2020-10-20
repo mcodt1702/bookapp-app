@@ -1,11 +1,25 @@
-import React from "react";
+import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import Header from "./Components/Header/Header";
+import SignUp from "./Components/SignUp/SignUp";
+import LandingPage from "./Components/LandingPage/LandingPage";
+import MainPage from "./Components/MainPage/MainPage";
 
-function App() {
-  return (
-    <main className="App">
-      <h1> Hello Book App</h1>
-    </main>
-  );
+class App extends Component {
+  state = {
+    a: [],
+  };
+
+  render() {
+    return (
+      <main className="App">
+        <Route path={"/"} component={Header}></Route>
+        <Route exact path={"/"} component={LandingPage}></Route>
+        <Route exact path={"/signUp"} component={SignUp}></Route>
+        <Route exact path={"/main"} component={MainPage}></Route>
+      </main>
+    );
+  }
 }
 
 export default App;
