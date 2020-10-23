@@ -1,7 +1,33 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
+import context from "../../context";
+import AuthApiService from "../../Services/auth-api-service";
+import TokenService from "../../Services/token-service";
 export default class LoginForm extends Component {
   state = { error: null };
+
+  static contextType = context;
+  handleSubmitJwtAuth = (e) => {
+    e.preventDefault();
+    this.setState({ error: null });
+    const { email, password } = e.target;
+    console.log(email.value, password.value);
+    AuthApiService.postLogin({
+      email: email.value,
+      password: password.value,
+    })
+      .then((res) => {
+        email.value = "";
+        password.value = "";
+        TokenService.saveAuthToken(res.authToken);
+        console.log(res.authToken);
+        this.context.handleLoginSuccess(res.id);
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
+  };
+
   render() {
     const { error } = this.state;
     return (
@@ -14,9 +40,9 @@ export default class LoginForm extends Component {
             password: P@ssword1234
           </p> */}
 
-          <div className="user_name">
-            <label htmlFor="LoginForm__user_name">Email</label>
-            <input required name="user_name" id="LoginForm__user_name"></input>
+          <div className="email">
+            <label htmlFor="LoginForm__email">Email</label>
+            <input required name="email" id="LoginForm__email"></input>
           </div>
           <div className="password">
             <label htmlFor="LoginForm__password">Password</label>
@@ -27,10 +53,8 @@ export default class LoginForm extends Component {
               id="LoginForm__password"
             ></input>
           </div>
-          <Link to="/main">
-            {" "}
-            <button>Login</button>
-          </Link>
+
+          <button>Login</button>
         </form>
       </section>
     );
