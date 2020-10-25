@@ -45,11 +45,24 @@ class App extends Component {
 
           return res.json();
         })
-        .then((Booking) => {
-          this.setState({
-            bookings: [...this.state.bookings, Booking],
-          });
+        .then(() => {
+          fetch(`${API_ENDPOINT}/bookings`)
+            .then((res) => {
+              if (!res.ok) {
+                throw new Error("Something went wrong"); // throw an error
+              }
+              return res;
+            })
+            .then((res) => res.json())
+            .then((bookings) => this.setState({ bookings }))
+            .catch((err) => {
+              alert(
+                "There was a problem connectig to the server getting consumers.",
+                err
+              );
+            });
         })
+
         .catch((err) => {
           alert(
             "There was a problem coneectig to the server.  We can't save your booking",
@@ -64,7 +77,7 @@ class App extends Component {
     fetch(`${API_ENDPOINT}/venues`)
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Something went wrong"); // throw an error
+          throw new Error("Something went wrong");
         }
         return res;
       })

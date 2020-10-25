@@ -7,11 +7,11 @@ export default class Venues extends Component {
     match: { params: { id: 0 } },
   };
   render() {
-    let { venues = [] } = this.context || [];
+    let { venues } = this.context || [];
 
     const venueList = venues.map((item) => (
-      <div className="venueList">
-        <ul key={item.id}>
+      <div key={item.id} className="venueList">
+        <ul>
           <li>{item.name}</li>
           <li>{item.description}</li>
         </ul>
