@@ -16,18 +16,19 @@ class App extends Component {
     bookings: [],
     currentUserId: [],
 
-    handleLoginSuccess: (id) => {
+    handleLoginSuccess: (user_id) => {
+      console.log(`this is the id = ${user_id}`);
       this.setState({
-        currentUserId: id,
+        currentUserId: user_id,
       });
-      window.location.replace("./main");
+      //window.location.replace("./main");
     },
 
     updateBooking: (id2) => {
       let updatedBooking = {
         id: id2,
       };
-      console.log(this.state.currentUserId);
+
       fetch(`${API_ENDPOINT}/bookings`, {
         method: "put",
         headers: {

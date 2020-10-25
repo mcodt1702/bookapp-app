@@ -20,8 +20,8 @@ export default class LoginForm extends Component {
         email.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-        console.log(res.authToken);
-        this.context.handleLoginSuccess(res.id);
+
+        this.context.handleLoginSuccess(res.user_id);
       })
       .catch((res) => {
         this.setState({ error: res.error });

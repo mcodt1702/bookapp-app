@@ -8,7 +8,7 @@ export default class Venues extends Component {
   };
   render() {
     let { venues } = this.context || [];
-
+    console.log(venues);
     const venueList = venues.map((item) => (
       <div key={item.id} className="venueList">
         <ul>
