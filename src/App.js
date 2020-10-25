@@ -23,14 +23,16 @@ class App extends Component {
       window.location.replace("./main");
     },
 
-    updateBooking: (id) => {
-      const updatedBooking = { id: id, users_id: this.currentUserId };
-
+    updateBooking: (id2) => {
+      let updatedBooking = {
+        id: id2,
+      };
+      console.log(this.state.currentUserId);
       fetch(`${API_ENDPOINT}/bookings`, {
-        method: "patch",
+        method: "put",
         headers: {
           "content-type": "application/json",
-          authorization: `bearer ${TokenService.getAuthToken()}`,
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
         },
         body: JSON.stringify(updatedBooking),
       })
@@ -38,14 +40,14 @@ class App extends Component {
           if (!res.ok) {
             throw new Error(
               "There was a problem coneectig to the server. We can't save your booking"
-            ); // throw an error
+            );
           }
 
           return res.json();
         })
-        .then((updatedBooking) => {
+        .then((Booking) => {
           this.setState({
-            bookings: [...this.state.bookings, updatedBooking],
+            bookings: [...this.state.bookings, Booking],
           });
         })
         .catch((err) => {
@@ -54,6 +56,7 @@ class App extends Component {
             err
           );
         });
+      console.log(updatedBooking);
     },
   };
 

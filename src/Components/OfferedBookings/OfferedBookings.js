@@ -17,8 +17,10 @@ export default class OfferedBookings extends Component {
       .map((item) => (
         <div key={item.id} className="bookingsList">
           <ul>
-            <li>{item.venue_id}</li>
-            <li>{item.booking_date}</li>
+            <li>
+              {this.context.venues.find((v) => v.id === item.venue_id).name}
+            </li>
+            <li>{new Date(item.booking_date).toDateString()}</li>
             <button onClick={() => this.context.updateBooking(item.id)}>
               Book it!{" "}
             </button>
