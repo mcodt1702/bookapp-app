@@ -11,7 +11,7 @@ export default class LoginForm extends Component {
     e.preventDefault();
     this.setState({ error: null });
     const { email, password } = e.target;
-    console.log(email.value, password.value);
+
     AuthApiService.postLogin({
       email: email.value,
       password: password.value,
@@ -20,7 +20,7 @@ export default class LoginForm extends Component {
         email.value = "";
         password.value = "";
         TokenService.saveAuthToken(res.authToken);
-
+        TokenService.saveUserId(res.user_id);
         this.context.handleLoginSuccess(res.user_id);
       })
       .catch((res) => {

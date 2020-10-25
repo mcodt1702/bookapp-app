@@ -9,9 +9,6 @@ export default class OfferedBookings extends Component {
   render() {
     let { bookings = [] } = this.context || [];
 
-    var d = new Date();
-    console.log(bookings);
-    console.log(d);
     const bookingsList = bookings
       .filter((booking) => booking.users_id === null)
       .map((item) => (
