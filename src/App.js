@@ -80,7 +80,7 @@ class App extends Component {
       .then((venues) => this.setState({ venues }))
       .catch((err) => {
         alert(
-          "There was a problem connectig to the server getting consumers.",
+          "There was a problem connectig to the server getting venues.",
           err
         );
       });
@@ -96,7 +96,7 @@ class App extends Component {
       .then((bookings) => this.setState({ bookings }))
       .catch((err) => {
         alert(
-          "There was a problem connectig to the server getting consumers.",
+          "There was a problem connectig to the server getting bookings.",
           err
         );
       });
