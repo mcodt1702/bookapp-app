@@ -13,8 +13,8 @@ export default class LandingPage extends Component {
         </h3>
         <div className="salutation">
           <h2>I have an account</h2>
+          email: test@yahoo.com <br></br> password: P@assword!
           <Login></Login>
-
           <Link to="/signUp">
             <h2>SignUp</h2>
           </Link>

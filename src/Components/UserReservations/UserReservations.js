@@ -28,7 +28,7 @@ export default class UserReservations extends Component {
 
     return (
       <section id="sec1">
-        Upcoming Reservations
+        <h2>Upcoming Reservations</h2>
         {userReservations}
       </section>
     );
