@@ -113,7 +113,7 @@ class App extends Component {
       .then((bookings) => this.setState({ bookings }))
       .catch((err) => {
         alert(
-          "There was a problem connectig to the server getting bookings.",
+          "There was a problem connectig to the server on startup getting bookings.",
           err
         );
       });

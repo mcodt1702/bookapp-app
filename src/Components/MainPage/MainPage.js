@@ -12,9 +12,6 @@ export default class MainPage extends Component {
   };
 
   render() {
-    const user = this.context.getUsersName();
-    console.log(user);
-
     return (
       <div role="main">
         hello
