@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import Context from "../../context";
 
+import Available from "../Available/available";
+
 export default class Venues extends Component {
   static contextType = Context;
   static defaultProps = {
@@ -12,8 +14,11 @@ export default class Venues extends Component {
     const venueList = venues.map((item) => (
       <div key={item.id} className="venueList">
         <ul>
-          <li>{item.name}</li>
+          <li>
+            <h2>{item.name}</h2>
+          </li>
           <li>{item.description}</li>
+          <Available id={item.id} />
         </ul>
       </div>
     ));

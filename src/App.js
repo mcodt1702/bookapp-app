@@ -15,16 +15,39 @@ class App extends Component {
     venues: [],
     bookings: [],
 
+    getUsersName: (user_id) => {
+      fetch(`${API_ENDPOINT}/users/name`, {
+        method: "get",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("There was a problem ");
+          }
+
+          return res.json();
+        })
+        .then((name) => console.log(name))
+        .catch((err) => {
+          alert(
+            "There was a problem coneectig to the server. We can't get your name"
+          );
+        });
+    },
     handleLoginSuccess: (user_id) => {
       window.location.replace("./main");
     },
-
-    updateBooking: (id2) => {
+    updateBooking: (id2, cancel = false) => {
       let updatedBooking = {
         id: id2,
       };
 
-      fetch(`${API_ENDPOINT}/bookings`, {
+      let url = cancel ? "/bookings/cancel" : "/bookings";
+
+      fetch(`${API_ENDPOINT}${url}`, {
         method: "put",
         headers: {
           "content-type": "application/json",
@@ -50,13 +73,7 @@ class App extends Component {
               return res;
             })
             .then((res) => res.json())
-            .then((bookings) => this.setState({ bookings }))
-            .catch((err) => {
-              alert(
-                "There was a problem connectig to the server getting consumers.",
-                err
-              );
-            });
+            .then((bookings) => this.setState({ bookings }));
         })
 
         .catch((err) => {
