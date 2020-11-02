@@ -1,13 +1,13 @@
 # BookApp
 
 Description Summary <br />
-The "GET-A-MEAL" APP gathers information from restaurants in a geographica delimited area and allows the user to log in search by type of food select items from the menu and place an order to be delivered.
-
-The restaurant user can create a user upload his restaurant information create add and delete food items to his mene.
-
+BookApp is an app that allows the user to reserve a place in an event.
+New Covid Social distancing guidelines require that open spaces have a
+reduced capacity. The bookApp helps venues and customers plan for
+visits and make sure they can attend the events they like.
 Visit Site: [Live Link](https://bookapp-api.vercel.app/)
 
-Client Repo: [Live Link](https://github.com/mcodt1702/geta-meal-app)
+Client Repo: [Live Link](https://github.com/mcodt1702/bookapp-app)
 
 # API Endpoints
 
@@ -33,18 +33,12 @@ Client Repo: [Live Link](https://github.com/mcodt1702/geta-meal-app)
   - POST -
   - GET -
 
-- /consumers
+- /venues
   - POST -
   - GET -
-  - PUT -
-- /providers
-  - POST -
-  - GET -
-  - PUT -
 
-![Screenshot 2020-10-08 163516](https://user-images.githubusercontent.com/57457274/95510707-5917d800-0984-11eb-98a6-8d0be9cef719.png)Login window
-
-![Screenshot 2020-10-08 163738](https://user-images.githubusercontent.com/57457274/95510887-a2682780-0984-11eb-86b3-acf44f8c5f47.png)
+![bookapp_main](https://user-images.githubusercontent.com/57457274/97824201-4c3b8b00-1c89-11eb-9c1b-7f40a6f029b6.png)
+![bookApp_landing](https://user-images.githubusercontent.com/57457274/97824208-4e9de500-1c89-11eb-89fb-b2385f017d19.png)
 
 ## Technology Stack:
 
