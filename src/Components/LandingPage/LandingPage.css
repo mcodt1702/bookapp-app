@@ -1,0 +1,12 @@
+.salutation {
+  color: #eaeff7;
+}
+
+.salutation a {
+  text-decoration: none;
+  color: #f3d5ad;
+}
+
+.salutation a:hover {
+  color: red;
+}

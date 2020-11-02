@@ -15,6 +15,8 @@ class App extends Component {
     venues: [],
     bookings: [],
 
+    user: {},
+
     getUsersName: (user_id) => {
       fetch(`${API_ENDPOINT}/users/name`, {
         method: "get",
@@ -30,7 +32,10 @@ class App extends Component {
 
           return res.json();
         })
-        .then((name) => console.log(name))
+        .then((user) => {
+          this.setState({ user });
+          console.log(user);
+        })
         .catch((err) => {
           alert(
             "There was a problem coneectig to the server. We can't get your name"
@@ -40,6 +45,46 @@ class App extends Component {
     handleLoginSuccess: (user_id) => {
       window.location.replace("./main");
     },
+
+    createUser: (e) => {
+      e.preventDefault();
+
+      let newUser = {
+        name: e.target.name.value,
+        email: e.target.email.value,
+        password: e.target.password.value,
+      };
+
+      fetch(
+        `${API_ENDPOINT}/users`,
+
+        {
+          method: "post",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(newUser),
+        }
+      )
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error(
+              "There was a problem coneectig to the server. We can't create a new Order"
+            ); // throw an error
+          }
+
+          return res.json();
+        })
+        .then((newUser) => {
+          this.setState(
+            {
+              users: [...this.state.users, newUser],
+            },
+            () => {
+              window.location.replace("/login");
+            }
+          );
+        });
+    },
+
     updateBooking: (id2, cancel = false) => {
       let updatedBooking = {
         id: id2,
@@ -117,6 +162,10 @@ class App extends Component {
           err
         );
       });
+
+    if (TokenService.hasAuthToken()) {
+      this.state.getUsersName();
+    }
   }
 
   render() {
@@ -127,6 +176,7 @@ class App extends Component {
           <Route exact path={"/"} component={LandingPage}></Route>
           <Route exact path={"/signUp"} component={SignUp}></Route>
           <Route exact path={"/login"} component={Login}></Route>
+          <Route exact path={"/loginvenue"} component={Login}></Route>
           <PrivateRoute
             exact
             path={"/main"}

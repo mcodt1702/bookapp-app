@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Context from "../../context";
-
+import "./Venues.css";
 import Available from "../Available/available";
 
 export default class Venues extends Component {
@@ -9,7 +9,7 @@ export default class Venues extends Component {
     match: { params: { id: 0 } },
   };
   render() {
-    let { venues } = this.context || [];
+    let { venues = [] } = this.context || [];
 
     const venueList = venues.map((item) => (
       <div key={item.id} className="venueList">

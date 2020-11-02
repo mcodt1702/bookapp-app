@@ -7,7 +7,8 @@ export default class Available extends Component {
     match: { params: { id: 0 } },
   };
   render() {
-    const list = this.context.bookings
+    let { bookings = [] } = this.context || [];
+    const list = bookings
       .filter((b) => b.venue_id === this.props.id && b.users_id === null)
       .map((each) => (
         <div key={each.id} className="vList">
@@ -22,9 +23,8 @@ export default class Available extends Component {
 
     return (
       <div>
-        <h1>hello there {this.props.id}</h1>
         {list}
-        <b>{list.length ? "" : "There are no events available"}</b>
+        <b>{list.length ? "" : "This venue has no openings at this time"}</b>
       </div>
     );
   }

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Context from "../../context";
+import "./OfferedBookings.css";
 
 export default class OfferedBookings extends Component {
   static contextType = Context;

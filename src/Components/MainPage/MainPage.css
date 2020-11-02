@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
+* {
+  font-family: "Playfair Display", serif;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  background-color: #0f1929;
+  color: #eaeff7;
+}
+
+body ul {
+  list-style-type: none;
+}
+
+.username {
+  background-color: #0f1929;
+  color: #eaeff7;
+}
+
+.username h2 {
+  height: 5vh;
+}
+
+.main ul {
+  padding-left: 0px;
+}
+
+.main button {
+  background-color: #f3d5ad;
+}
+
+.main {
+  background-color: #0f1929;
+  color: #eaeff7;
+}
+
+@media screen and (min-width: 770px) {
+  .main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+}

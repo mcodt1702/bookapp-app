@@ -32,7 +32,7 @@ export default class LoginForm extends Component {
     const { error } = this.state;
     return (
       <section className="LoginPage">
-        <p>PLEAE LOG IN TO CONTINUE</p>
+        <p>PLEASE LOG IN TO CONTINUE</p>
         <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
           <div role="alert">{error && <p className="red">{error}</p>}</div>
           {/* <p>

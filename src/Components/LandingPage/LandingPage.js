@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import Login from "../LogIn/LogIn";
 import { Link } from "react-router-dom";
+
+import "./LandingPage.css";
 export default class LandingPage extends Component {
   render() {
     return (
-      <div>
+      <div className="landing">
         <h3>
           BookApp is an app that allows the user to reserve a place in an event.
           New Covid Social distancing guidelines require that open spaces have a

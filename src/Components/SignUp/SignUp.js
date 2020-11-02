@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import ValidationError from "../../Utilities/ValidationError";
+import context from "../../context";
 
 export default class SignUp extends Component {
+  static contextType = context;
   constructor() {
     super();
 
@@ -55,10 +57,11 @@ export default class SignUp extends Component {
   render() {
     return (
       <form
-        onSubmit={(e) => this.context.createRestaurant(e, this.props.history)}
+        onSubmit={(e) => this.context.createUser(e, this.props.history)}
         id="userform"
       >
         <div className="name">
+          <label htmlFor="LoginForm__password">Name: </label>
           <input
             name="name"
             type="text"
@@ -73,6 +76,7 @@ export default class SignUp extends Component {
         </div>
 
         <div className="email">
+          <label htmlFor="LoginForm__email">Email: </label>
           <input
             name="email"
             type="text"
@@ -87,6 +91,7 @@ export default class SignUp extends Component {
         </div>
 
         <div className="password">
+          <label htmlFor="LoginForm__password">Password: </label>
           <input
             name="password"
             type="password"

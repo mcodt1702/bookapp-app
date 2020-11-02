@@ -4,6 +4,7 @@ import UserReservations from "../UserReservations/UserReservations";
 import OfferedBookings from "../OfferedBookings/OfferedBookings";
 import Venues from "../Venues/Venues";
 import Context from "../../context";
+import "./MainPage.css";
 
 export default class MainPage extends Component {
   static contextType = Context;
@@ -12,12 +13,18 @@ export default class MainPage extends Component {
   };
 
   render() {
+    let { user = [] } = this.context || [];
+    const userName = user.name;
+    console.log(userName);
+
     return (
-      <div role="main">
-        hello
-        <UserReservations />
-        <OfferedBookings />
-        <Venues />
+      <div className="username">
+        <h2>Hello {userName}</h2>
+        <div role="main" className="main">
+          <UserReservations />
+          <OfferedBookings />
+          <Venues />
+        </div>
       </div>
     );
   }

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import Context from "../../context";
 import TokenService from "../../Services/token-service";
+import ticket from "../../images/ticket.jpg";
 
 export default class Header extends Component {
   static contextType = Context;
@@ -25,7 +26,7 @@ export default class Header extends Component {
     return (
       <div className="Header__not-logged-in">
         <div className="restLogin">
-          <Link to="/loginRest">Promote your event</Link>{" "}
+          <Link to="/loginvenue">Promote your event</Link>{" "}
         </div>
       </div>
     );
@@ -36,11 +37,11 @@ export default class Header extends Component {
       <header className="headerstyling">
         <div className="hambu">
           <Link id="hambu" to="/main">
-            &#9776;
+            <img src={ticket} alt="ticket" />
           </Link>
         </div>
         <Link className="logo" to="/">
-          BookApp
+          <h1>BookApp</h1>
         </Link>
         <div className="nav">
           <div className="restlogin">

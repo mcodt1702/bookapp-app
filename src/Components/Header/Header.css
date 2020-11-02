@@ -1,3 +1,39 @@
 .headerstyling {
-  background-color: grey;
+  background-color: #34558b;
+  color: white;
+}
+
+header a:link {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  height: 15vh;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.hambu a {
+  color: white;
+}
+
+.logo {
+  color: white;
+}
+
+.restlogin a {
+  color: white;
+}
+
+header img {
+  height: 12.5vh;
+  display: none;
+}
+
+@media screen and (min-width: 770px) {
+  header img {
+    height: 12.5vh;
+    display: inline;
+  }
 }
