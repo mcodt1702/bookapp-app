@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-
+import "./Login.css";
 import context from "../../context";
 import AuthApiService from "../../Services/auth-api-service";
 import TokenService from "../../Services/token-service";
+import { Button, Input } from "../../Utilities/utilities";
+
 export default class LoginForm extends Component {
   state = { error: null };
 
@@ -35,27 +37,25 @@ export default class LoginForm extends Component {
         <p>PLEASE LOG IN TO CONTINUE</p>
         <form className="LoginForm" onSubmit={this.handleSubmitJwtAuth}>
           <div role="alert">{error && <p className="red">{error}</p>}</div>
-          {/* <p>
-            Demo Customer - <br />
-            username: joe@pizza.com <br />
-            password: P@ssword1234
-          </p> */}
 
           <div className="email">
-            <label htmlFor="LoginForm__email">Email</label>
-            <input required name="email" id="LoginForm__email"></input>
+            <p>
+              {" "}
+              <label htmlFor="LoginForm__email">Email</label>
+              <Input required name="email" id="LoginForm__email"></Input>
+            </p>
           </div>
           <div className="password">
             <label htmlFor="LoginForm__password">Password</label>
-            <input
+            <Input
               required
               name="password"
               type="password"
               id="LoginForm__password"
-            ></input>
+            ></Input>
           </div>
 
-          <button>Login</button>
+          <Button>Login</Button>
         </form>
       </section>
     );

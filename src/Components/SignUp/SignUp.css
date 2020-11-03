@@ -1,4 +1,4 @@
-.LoginPage {
+.LoginPage2 {
   width: 280px;
   align-items: center;
   margin-right: auto;
@@ -6,10 +6,15 @@
 }
 
 @media screen and (min-width: 770px) {
-  .LoginPage {
+  .LoginPage2 {
     width: 300px;
     align-items: center;
     margin-left: 41%;
     margin-right: auto;
+    margin-top: 20px;
+  }
+
+  .name {
+    margin-top: 50px;
   }
 }

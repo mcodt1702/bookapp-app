@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import ValidationError from "../../Utilities/ValidationError";
 import context from "../../context";
+import { Button, Input } from "../../Utilities/utilities";
+import "./SignUp.css";
 
 export default class SignUp extends Component {
   static contextType = context;
@@ -56,59 +58,62 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <form
-        onSubmit={(e) => this.context.createUser(e, this.props.history)}
-        id="userform"
-      >
-        <div className="name">
-          <label htmlFor="LoginForm__password">Name: </label>
-          <input
-            name="name"
-            type="text"
-            placeholder="Name"
-            value={this.state.name.value}
-            onChange={(e) => this.nameUpdate(e.target.value)}
-            required
-          ></input>
-          {this.state.name.touched && (
-            <ValidationError message={this.validateName()} />
-          )}
-        </div>
+      <section className="LoginPage2">
+        {" "}
+        <form
+          onSubmit={(e) => this.context.createUser(e, this.props.history)}
+          id="userform"
+        >
+          <div className="name">
+            <label htmlFor="LoginForm__password">Name: </label>
+            <Input
+              name="name"
+              type="text"
+              placeholder="Name"
+              value={this.state.name.value}
+              onChange={(e) => this.nameUpdate(e.target.value)}
+              required
+            ></Input>
+            {this.state.name.touched && (
+              <ValidationError message={this.validateName()} />
+            )}
+          </div>
 
-        <div className="email">
-          <label htmlFor="LoginForm__email">Email: </label>
-          <input
-            name="email"
-            type="text"
-            placeholder="email@email.com"
-            value={this.state.email.value}
-            onChange={(e) => this.emailUpdate(e.target.value)}
-            required
-          ></input>
-          {this.state.email.touched && (
-            <ValidationError message={this.validateEmail()} />
-          )}
-        </div>
+          <div className="email">
+            <label htmlFor="LoginForm__email">Email: </label>
+            <Input
+              name="email"
+              type="text"
+              placeholder="email@email.com"
+              value={this.state.email.value}
+              onChange={(e) => this.emailUpdate(e.target.value)}
+              required
+            ></Input>
+            {this.state.email.touched && (
+              <ValidationError message={this.validateEmail()} />
+            )}
+          </div>
 
-        <div className="password">
-          <label htmlFor="LoginForm__password">Password: </label>
-          <input
-            name="password"
-            type="password"
-            placeholder="one numeric digit, uppercase and lowercase letters "
-            value={this.state.password.value}
-            onChange={(e) => this.passwordUpdate(e.target.value)}
-            required
-          ></input>
-          {this.state.password.touched && (
-            <ValidationError message={this.validatePassword()} />
-          )}
-        </div>
+          <div className="password">
+            <label htmlFor="LoginForm__password">Password: </label>
+            <Input
+              name="password"
+              type="password"
+              placeholder="one numeric digit, uppercase and lowercase letters "
+              value={this.state.password.value}
+              onChange={(e) => this.passwordUpdate(e.target.value)}
+              required
+            ></Input>
+            {this.state.password.touched && (
+              <ValidationError message={this.validatePassword()} />
+            )}
+          </div>
 
-        <button type="submit" id="submit">
-          Register
-        </button>
-      </form>
+          <Button type="submit" id="submit">
+            Register
+          </Button>
+        </form>
+      </section>
     );
   }
 }
