@@ -137,10 +137,6 @@ class App extends Component {
           err
         );
       });
-
-    if (TokenService.hasAuthToken()) {
-      this.state.getUsersName();
-    }
   }
 
   render() {
