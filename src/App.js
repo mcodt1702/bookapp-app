@@ -17,6 +17,31 @@ class App extends Component {
 
     user: {},
 
+    getUsersName: (user_id) => {
+      fetch(`${API_ENDPOINT}/users/name`, {
+        method: "get",
+        headers: {
+          "content-type": "application/json",
+          Authorization: `Bearer ${TokenService.getAuthToken()}`,
+        },
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("There was a problem ");
+          }
+
+          return res.json();
+        })
+        .then((user) => {
+          this.setState({ user });
+          console.log(user);
+        })
+        .catch((err) => {
+          alert(
+            "There was a problem coneectig to the server. We can't get your name"
+          );
+        });
+    },
     handleLoginSuccess: (user_id) => {
       window.location.replace("./main");
     },
@@ -137,6 +162,10 @@ class App extends Component {
           err
         );
       });
+
+    if (TokenService.hasAuthToken()) {
+      this.state.getUsersName();
+    }
   }
 
   render() {
