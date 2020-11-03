@@ -9,9 +9,6 @@ export default class UserReservations extends Component {
     match: { params: { id: 0 } },
   };
   render() {
-    // const userName = this.context.getUsersName();
-    // console.log(userName);
-
     const user = parseInt(TokenService.getUserId());
     let { bookings = [] } = this.context || [];
 
