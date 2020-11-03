@@ -15,7 +15,6 @@ export default class MainPage extends Component {
   render() {
     let { user = [] } = this.context || [];
     const userName = user.name;
-    console.log(userName);
 
     return (
       <div className="username">

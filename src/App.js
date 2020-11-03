@@ -14,7 +14,7 @@ class App extends Component {
   state = {
     venues: [],
     bookings: [],
-
+    users: [],
     user: {},
 
     getUsersName: (user_id) => {
@@ -34,7 +34,6 @@ class App extends Component {
         })
         .then((user) => {
           this.setState({ user });
-          console.log(user);
         })
         .catch((err) => {
           alert(
